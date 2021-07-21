@@ -1,0 +1,9 @@
+-if unchecked_notifications.any?
+  li.btn.btn-light.home-btn= link_to notifications_path, class: 'list' do
+    i.fas.fa-circle.n-circle
+    i.fas.fa-bell 
+    |  通知 
+-else
+  li.btn.btn-light.home-btn= link_to notifications_path, class: 'list' do
+    i.fas.fa-bell
+    |  通知 

@@ -1,0 +1,21 @@
+.notification-visual
+  .container
+    .row
+      .col-lg-5
+      .col-lg-2.text-center
+        h4.mt-5.mb-4.font-weight-bold.notification-caption 通知
+
+    .row
+      .col-lg-3
+      .col-lg-6
+        .frame-notification
+          = link_to notifications_destroy_all_path, method: :delete do
+            i.fas.fa-trash style="color: black;"
+                h7 style="color: black;" 全削除
+            <hr>
+          - notifications = @notifications.where.not(visiter_id: current_user.id)
+          - if notifications.exists?
+            # _notification.html.slimファイルにパーシャルで飛ばす
+            = render notifications
+          - else
+            p 通知はありません
